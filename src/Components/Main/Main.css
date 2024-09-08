@@ -221,7 +221,7 @@
     width: 16px; /* Reduce image size more */
   }
   .search-bar {
-    padding: 5px 8px;
+    padding: 8px 8px;
   }
   .search-bar input {
     font-size: 12px; /* Adjust input font size for very small screens */
