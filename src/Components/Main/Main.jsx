@@ -3,29 +3,39 @@ import { assets } from "../../assets/assets";
 import "./Main.css";
 import { contex } from "../../Context/Context";
 
-const Main = () => {
-  const {
-    onSend,
-    RecentPromt,
-    loading,
-    ResultData,
-    Input,
-    setInput,
-    Result,
-    setRecentPromt,
-    setPreviousPromt,
-    PreviousPromt,
-  } = useContext(contex);
+const Main = ({ Theme, setTheme }) => {
+  const { onSend, RecentPromt, loading, ResultData, Input, setInput, Result } =
+    useContext(contex);
 
   const cardPrompt = (event) => {
     const promt = event.target.innerText;
     onSend(promt);
   };
+  const Themetoggle = () => {
+    Theme === "light" ? setTheme("dark") : setTheme("light");
+  };
   return (
     <div className="main">
       <div className="nav">
         <p>Gemini</p>
-        <img src={assets.user_icon} alt="" />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "10px",
+          }}
+        >
+          <img src={assets.user_icon} alt="" />
+          <img
+            onClick={() => {
+              Themetoggle();
+            }}
+            style={{ width: "20px", backgroundColor: "transparent" }}
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpQaiPA71IlRh9ao2Zt-rglKjxjMoc-IBqWQ&s"
+            alt=""
+          />
+        </div>
       </div>
       <div className="main-container">
         {!Result ? (
@@ -79,12 +89,18 @@ const Main = () => {
         )}
         <div className="main-bottom">
           <div className="search-bar">
-            <input
+            <textarea
               onChange={(e) => setInput(e.target.value)}
               value={Input}
-              type="text"
-              placeholder="Enter a promt here"
+              rows={1}
+              placeholder="Enter a prompt here"
+              style={{ resize: "none", overflow: "hidden", width: "285px" }} // Disable resize, hide scrollbars
+              onInput={(e) => {
+                e.target.style.height = "auto"; // Reset the height
+                e.target.style.height = `${e.target.scrollHeight}px`; // Set the height to fit the content
+              }}
             />
+
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />

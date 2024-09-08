@@ -7,6 +7,7 @@
 .main .nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 22px;
   padding: 20px;
   color: #585858;
@@ -92,7 +93,7 @@
   cursor: pointer;
 }
 
-.search-bar input {
+.search-bar textarea {
   flex: 1;
   background: transparent;
   border: none;
@@ -169,9 +170,13 @@
   line-height: 1.8;
 }
 @media (max-width: 600px) {
-  .main-bottom input {
+  .main-bottom textarea {
     flex: none;
-    width: 150px;
+    width: 100%; /* Ensure input takes full width */
+    height: auto;
+    overflow: hidden;
+    font-size: 16px; /* Adjust font size for smaller screens */
+    padding: 6px;
   }
   .main-bottom img {
     width: 20px;

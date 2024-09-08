@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import run from "../confiq/gemini";
 export const contex = createContext();
-const ContextProvider = (props) => {
+const ContextProvider = ({ children }) => {
   const [Input, setInput] = useState("");
   const [RecentPromt, setRecentPromt] = useState("");
   const [PreviousPromt, setPreviousPromt] = useState([]);
@@ -76,9 +76,7 @@ const ContextProvider = (props) => {
     newchat,
   };
 
-  return (
-    <contex.Provider value={ContextValue}>{props.children}</contex.Provider>
-  );
+  return <contex.Provider value={ContextValue}>{children}</contex.Provider>;
 };
 
 export default ContextProvider;

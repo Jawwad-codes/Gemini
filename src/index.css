@@ -10,6 +10,10 @@
   display: flex;
   animation: fade 1.5s;
 }
+.root.dark {
+  background-color: #000000;
+  color: wheat;
+}
 @keyframes fade {
   0% {
     opacity: 0;
