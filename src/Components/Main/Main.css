@@ -169,6 +169,7 @@
   font-weight: 300;
   line-height: 1.8;
 }
+/* Existing media query for max-width: 600px */
 @media (max-width: 600px) {
   .main-bottom textarea {
     flex: none;
@@ -185,6 +186,44 @@
     padding: 10px 15px;
   }
   .search-bar div {
-    gap: 1px;
+    gap: 5px;
+  }
+}
+
+/* New media query for max-width: 400px (extra small screens) */
+@media (max-width: 400px) {
+  .main-bottom textarea {
+    width: 100%;
+    font-size: 14px; /* Further adjust font size for extra small screens */
+    padding: 3px;
+  }
+  .main-bottom img {
+    width: 18px; /* Reduce image size further */
+  }
+  .search-bar {
+    padding: 8px 10px;
+  }
+  .search-bar div {
+    gap: 3px; /* Reduce gap between elements */
+  }
+  .search-bar input {
+    font-size: 14px; /* Adjust input font size */
+  }
+}
+
+/* Additional media query for very small screens (max-width: 320px) */
+@media (max-width: 320px) {
+  .main-bottom textarea {
+    font-size: 12px; /* Further reduce font size */
+    padding: 2px;
+  }
+  .main-bottom img {
+    width: 16px; /* Reduce image size more */
+  }
+  .search-bar {
+    padding: 5px 8px;
+  }
+  .search-bar input {
+    font-size: 12px; /* Adjust input font size for very small screens */
   }
 }
