@@ -34,7 +34,6 @@ async function run(promt) {
   });
 
   const result = await chatSession.sendMessage(promt);
-  console.log(result.response.text());
   return result.response.text();
 }
 

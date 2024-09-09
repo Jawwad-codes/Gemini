@@ -9,7 +9,7 @@ const Sidebar = () => {
     setRecentPromt(prompt);
     await onSend(prompt);
   };
-  console.log(extended);
+
   return (
     <div className="sidebar">
       <div className="top">
