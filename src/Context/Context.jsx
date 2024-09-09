@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import run from "../confiq/gemini";
 export const contex = createContext();
+
 const ContextProvider = ({ children }) => {
   const [Input, setInput] = useState("");
   const [RecentPromt, setRecentPromt] = useState("");
@@ -8,6 +9,7 @@ const ContextProvider = ({ children }) => {
   const [Result, setResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [ResultData, setResultData] = useState("");
+
   const delaypara = (index, nextword) => {
     setTimeout(() => {
       setResultData((prev) => prev + nextword);
